@@ -1,6 +1,6 @@
-# [Your Name]'s Cybersecurity & Intelligence Portfolio
+# Alexander Chase's Cybersecurity & Intelligence Portfolio
 
-Welcome to my GitHub portfolio! I am a dedicated cybersecurity and intelligence professional with expertise in **Cyber Threat Analysis**, **Data Analytics**, and **Information Assurance**. This repository showcases my projects, skills, and contributions in these domains, demonstrating my ability to protect systems, analyze threats, and derive actionable insights. Below, you'll find an overview of my work, organized by key areas of expertise.
+Welcome to my GitHub portfolio! I am a dedicated cybersecurity and intelligence professional with expertise in **Cyber Threat Analysis**,**Digital Forensics**, **Data Analytics**, and **Information Assurance**. This repository showcases my projects, skills, and contributions in these domains, demonstrating my ability to protect systems, analyze threats, and derive actionable insights. Below, I've included an overview of my work, organized by key areas of expertise.
 
 ---
 
@@ -8,9 +8,9 @@ Welcome to my GitHub portfolio! I am a dedicated cybersecurity and intelligence 
 
 I am a cybersecurity and intelligence professional passionate about safeguarding digital assets and leveraging data to drive informed decision-making. With a strong foundation in threat analysis, data analytics, and information assurance, I have worked on projects that address real-world security challenges. My goal is to contribute to secure, resilient systems and provide value to organizations through strategic insights.
 
-- **LinkedIn**: [Your LinkedIn URL]
-- **Email**: [Your Email Address]
-- **Certifications**: [e.g., CISSP, CEH, CompTIA Security+, etc., if applicable]
+- **LinkedIn**: https://www.linkedin.com/in/alexanderactual
+- **Email**: chase.cyber@proton.me
+- **Certifications**: CompTIA Security+
 
 ---
 
