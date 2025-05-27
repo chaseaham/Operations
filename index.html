@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Threat Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/babel-standalone@7.22.9/babel.min.js"></script>
+</head>
+<body>
+  <div id="root" class="min-h-screen bg-gray-100"></div>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // Sample threat data structure (parsed from OSINT feed)
+    const parseThreatData = (rawData) => {
+      // For demo, parse a sample C2 Tracker feed (plain text IPs with metadata)
+      const lines = rawData.split('\n').filter(line => line.trim() !== '');
+      return lines.map((line, index) => {
+        const [ip, type] = line.split(','); // Assuming CSV-like format: IP,threat_type
+        return {
+          id: index,
+          ip: ip || line,
+          type: type || 'Unknown',
+          lastSeen: new Date().toISOString().split('T')[0], // Mock date
+        };
+      });
+    };
+
+    // Main Dashboard Component
+    function Dashboard() {
+      const [threats, setThreats] = useState([]);
+      const [filter, setFilter] = useState('');
+      const [loading, setLoading] = useState(true);
+
+      // Fetch data from OSINT feed
+      const fetchThreats = async () => {
+        try {
+          setLoading(true);
+          // Example: Fetch from MontySecurity's C2 Tracker
+          const response = await fetch('https://raw.githubusercontent.com/montysecurity/C2-Tracker/main/data/Cobalt Strike C2 IPs.txt');
+          const rawData = await response.text();
+          const parsedData = parseThreatData(rawData);
+          setThreats(parsedData);
+          setLoading(false);
+        } catch (error) {
+          console.error('Error fetching threat data:', error);
+          setLoading(false);
+        }
+      };
+
+      // Initial fetch and periodic refresh
+      useEffect(() => {
+        fetchThreats();
+        const interval = setInterval(fetchThreats, 60000); // Refresh every 60 seconds
+        return () => clearInterval(interval);
+      }, []);
+
+      // Prepare data for chart (count threats by type)
+      const chartData = {
+        labels: [...new Set(threats.map(t => t.type))],
+        datasets: [{
+          label: 'Threat Count by Type',
+          data: [...new Set(threats.map(t => t.type))].map(type => 
+            threats.filter(t => t.type === type).length
+          ),
+          backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        }]
+      };
+
+      // Initialize chart
+      useEffect(() => {
+        const ctx = document.getElementById('threatChart')?.getContext('2d');
+        if (ctx) {
+          const chart = new Chart(ctx, {
+            type: 'bar',
+            data: chartData,
+            options: {
+              responsive: true,
+              scales: { y: { beginAtZero: true } }
+            }
+          });
+          return () => chart.destroy();
+        }
+      }, [threats]);
+
+      // Filter threats based on user input
+      const filteredThreats = threats.filter(t => 
+        t.ip.toLowerCase().includes(filter.toLowerCase()) || 
+        t.type.toLowerCase().includes(filter.toLowerCase())
+      );
+
+      return (
+        <div className="container mx-auto p-4">
+          <h1 className="text-3xl font-bold text-center mb-6">Cyber Threat Dashboard</h1>
+          
+          {/* Filter Input */}
+          <div className="mb-4">
+            <input
+              type="text"
+              placeholder="Filter by IP or Threat Type"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+              className="w-full p-2 border rounded"
+            />
+          </div>
+
+          {/* Loading Indicator */}
+          {loading && <p className="text-center text-gray-500">Loading threat data...</p>}
+
+          {/* Threat Table */}
+          <div className="overflow-x-auto">
+            <table className="min-w-full bg-white border">
+              <thead>
+                <tr>
+                  <th className="p-2 border">IP Address</th>
+                  <th className="p-2 border">Threat Type</th>
+                  <th className="p-2 border">Last Seen</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredThreats.map(threat => (
+                  <tr key={threat.id} className="hover:bg-gray-100">
+                    <td className="p-2 border">{threat.ip}</td>
+                    <td className="p-2 border">{threat.type}</td>
+                    <td className="p-2 border">{threat.lastSeen}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Threat Chart */}
+          <div className="mt-6">
+            <canvas id="threatChart" className="max-w-full"></canvas>
+          </div>
+
+          {/* Source Info */}
+          <p className="mt-4 text-sm text-gray-600">
+            Data sourced from <a href="https://github.com/montysecurity/C2-Tracker" className="text-blue-500">MontySecurity C2-Tracker</a>.
+            Add more OSINT feeds in the fetchThreats function.
+          </p>
+        </div>
+      );
+    }
+
+    // Render the app
+    ReactDOM.render(<Dashboard />, document.getElementById('root'));
+  </script>
+</body>
+</html>
