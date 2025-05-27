@@ -22,13 +22,13 @@ In this section, I highlight my ability to identify, assess, and mitigate cyber 
   Developed a Python-based tool to analyze malware samples, identifying malicious behaviors and generating threat reports.  
   - Technologies: Python, YARA, VirusTotal API  
   - Key Features: Automated signature generation, behavioral analysis, and integration with threat intelligence feeds.  
-  - [Link to Repository or Project]
+  - [Pending link to Repository or Project]
 
 - **Threat Intelligence Dashboard**  
   Created a dashboard to visualize and track cyber threats in real-time, pulling data from open-source intelligence (OSINT) feeds.  
   - Technologies: Python (Pandas), JavaScript, D3.js, Elasticsearch  
   - Key Features: Real-time threat monitoring, geolocation mapping, and IOC (Indicators of Compromise) correlation.  
-  - [Link to Repository or Project]
+  - [Pending link to Repository or Project]
 
 ---
 
@@ -40,13 +40,13 @@ My data analytics projects focus on extracting meaningful insights from complex 
   Built a data pipeline to analyze network traffic logs, detecting anomalies indicative of potential intrusions.  
   - Technologies: Python (Scikit-learn), Apache Spark, SQL  
   - Key Features: Anomaly detection using machine learning, visualization of traffic patterns, and automated alerting.  
-  - [Link to Repository or Project]
+  - [Pending link to Repository or Project]
 
 - **Incident Response Metrics Dashboard**  
   Developed a dashboard to track and analyze incident response metrics, improving team efficiency and response times.  
   - Technologies: R, Tableau, MySQL  
   - Key Features: KPI tracking, trend analysis, and customizable reporting for stakeholders.  
-  - [Link to Repository or Project]
+  - [Pending link to Repository or Project]
 
 ---
 
