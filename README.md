@@ -6,7 +6,7 @@ Welcome to my GitHub portfolio! I am a dedicated cybersecurity and intelligence 
 
 ## About Me
 
-I am a cybersecurity and intelligence professional passionate about safeguarding digital assets and leveraging data to drive informed decision-making. With a strong foundation in threat analysis, data analytics, and information assurance, I have worked on projects that address real-world security challenges. My goal is to contribute to secure, resilient systems and provide value to organizations through strategic insights.
+I am a cybersecurity and intelligence professional passionate about safeguarding digital assets and leveraging data to drive informed decision-making. With a strong foundation in threat analysis, data analytics, and information assurance, I have worked on projects that address real-world security challenges. My goal is to contribute to the development of secure, resilient systems and provide value to organizations through strategic insights.
 
 - **LinkedIn**: https://www.linkedin.com/in/alexanderactual
 - **Email**: chase.cyber@proton.me
@@ -19,13 +19,13 @@ I am a cybersecurity and intelligence professional passionate about safeguarding
 In this section, I highlight my ability to identify, assess, and mitigate cyber threats through proactive analysis and intelligence-driven approaches.
 
 - **Malware Analysis Tool**  
-  Developed a Python-based tool to analyze malware samples, identifying malicious behaviors and generating threat reports.  
+  Developing a Python-based tool to analyze malware samples, identify malicious behaviors, and generate threat reports.  
   - Technologies: Python, YARA, VirusTotal API  
   - Key Features: Automated signature generation, behavioral analysis, and integration with threat intelligence feeds.  
   - [Pending link to Repository or Project]
 
 - **Threat Intelligence Dashboard**  
-  Created a dashboard to visualize and track cyber threats in real-time, pulling data from open-source intelligence (OSINT) feeds.  
+  Creating a dashboard to visualize and track cyber threats in real-time, pulling data from open-source intelligence (OSINT) feeds.  
   - Technologies: Python (Pandas), JavaScript, D3.js, Elasticsearch  
   - Key Features: Real-time threat monitoring, geolocation mapping, and IOC (Indicators of Compromise) correlation.  
   - [Pending link to Repository or Project]
@@ -43,7 +43,7 @@ My data analytics projects focus on extracting meaningful insights from complex 
   - [Pending link to Repository or Project]
 
 - **Incident Response Metrics Dashboard**  
-  Developed a dashboard to track and analyze incident response metrics, improving team efficiency and response times.  
+  Developing a dashboard to track and analyze incident response metrics, improving team efficiency and response times.  
   - Technologies: R, Tableau, MySQL  
   - Key Features: KPI tracking, trend analysis, and customizable reporting for stakeholders.  
   - [Pending link to Repository or Project]
